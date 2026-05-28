@@ -1,0 +1,32 @@
+[gd_scene format=3 uid="uid://cd4421usq076c"]
+
+[ext_resource type="PackedScene" uid="uid://cm0etv3nqtc6n" path="res://taxi.tscn" id="1_f3sb7"]
+[ext_resource type="Texture2D" uid="uid://dcyw5e1m4lthn" path="res://art/greybox/checker_ground.png" id="1_fj7yv"]
+
+[sub_resource type="BoxMesh" id="BoxMesh_tlwt5"]
+size = Vector3(100, 1, 100)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_fj7yv"]
+albedo_texture = ExtResource("1_fj7yv")
+anisotropy = 1.0
+uv1_scale = Vector3(50, 50, 50)
+uv2_scale = Vector3(50, 50, 50)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_f3sb7"]
+size = Vector3(100, 1, 100)
+
+[node name="World" type="Node3D" unique_id=1808168380]
+
+[node name="Ground" type="StaticBody3D" parent="." unique_id=269520245]
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Ground" unique_id=1088203794]
+mesh = SubResource("BoxMesh_tlwt5")
+surface_material_override/0 = SubResource("StandardMaterial3D_fj7yv")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Ground" unique_id=999294700]
+shape = SubResource("BoxShape3D_f3sb7")
+
+[node name="Taxi" parent="." unique_id=1055152684 instance=ExtResource("1_f3sb7")]
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="." unique_id=1231308078]
+transform = Transform3D(0.70710677, -0.61237246, 0.35355335, 0, 0.49999997, 0.86602545, -0.70710677, -0.61237246, 0.35355335, 0, 0, 0)
