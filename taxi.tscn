@@ -1,6 +1,7 @@
 [gd_scene format=3 uid="uid://cm0etv3nqtc6n"]
 
 [ext_resource type="Script" uid="uid://c8n4t52lin772" path="res://taxi.gd" id="1_nxq8a"]
+[ext_resource type="Script" uid="uid://ccc4g84svwxbd" path="res://DriverLookController.gd" id="2_ok8at"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_fct5l"]
 size = Vector3(2, 1, 3)
@@ -23,8 +24,10 @@ shape = SubResource("BoxShape3D_fct5l")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
 mesh = SubResource("BoxMesh_fct5l")
 
-[node name="DriverSeat" type="Node3D" parent="." unique_id=1332846349]
+[node name="DriverSeat" type="Node3D" parent="." unique_id=1332846349 node_paths=PackedStringArray("head_pivot")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.5, 2, -0.5)
+script = ExtResource("2_ok8at")
+head_pivot = NodePath("HeadPivot")
 
 [node name="HeadPivot" type="Node3D" parent="DriverSeat" unique_id=651185044]
 
